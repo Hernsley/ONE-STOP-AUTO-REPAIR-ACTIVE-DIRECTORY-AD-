@@ -1,4 +1,4 @@
-# One Stop Auto Repair Active Directory Deployment (13 Users)
+# Active Directory Deployment - Auto Repair Company (13 Users)
 
 ## 📌 Overview
 
