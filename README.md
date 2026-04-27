@@ -183,7 +183,9 @@ New-ADUser -Name "mechanic1" -SamAccountName "mechanic1" `
 
 ## 📊 Project Presentation
 
-📎 [Download PowerPoint](presentation/AD_Project.pptx)
+This PowerPoint provides a full walkthrough of the Active Directory deployment, including architecture, IAM design, GPO configuration, and troubleshooting scenarios.
+
+📎 [Download Presentation](presentation/AD_Project.pptx)
 
 ---
 
