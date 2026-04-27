@@ -1,14 +1,14 @@
-#  Active Directory Deployment – ONE STOP Auto Repair Company (13 Users)
+# 🚗 Active Directory Deployment – Auto Repair Company (13 Users)
 
-## Project Overview
+## 📌 Overview
 
-This project demonstrates the design and implementation of a secure Active Directory environment using Windows Server 2019 for a small auto repair company (ONE STOP AUTO REPAIR).
+Designed and implemented a production-style Active Directory environment using Windows Server 2019 to support a 13-user auto repair business.
 
-The environment supports centralized identity management, role-based access control, and secure access to company resources for 13 employees across different roles.
+This project demonstrates hands-on experience with identity management, system administration, troubleshooting, and IT support operations.
 
 ---
 
-## Company Structure
+## 👥 Environment
 
 * 7 Mechanics
 * 2 IT Officers
@@ -18,136 +18,172 @@ The environment supports centralized identity management, role-based access cont
 
 ---
 
-## 🧱 Infrastructure Design
+## 🧱 Infrastructure
 
-* **Domain:** autorepair.local
-* **Servers:**
-
-  * DC1 (Primary Domain Controller)
-  * DC2 (Backup Domain Controller)
-  * File Server (for shared resources)
-* **Services:**
+* Domain: `autorepair.local`
+* 2 Domain Controllers (DC1, DC2)
+* File Server for shared resources
+* Services:
 
   * Active Directory Domain Services (AD DS)
   * DNS
 
 ---
 
-## 🗂️ Organizational Unit (OU) Structure
+## 🖼️ Network Architecture
 
-The AD environment is organized to reflect business roles:
+![Network Diagram](diagrams/network-diagram.png)
 
-* Users
+---
+
+## 🗂️ Active Directory Structure
+
+* Organized using Organizational Units (OUs)
+* Separate containers for:
 
   * Mechanics
   * IT
   * Payroll
   * Admin
-  * FrontDesk
-* Computers
-* Groups
-
-This structure allows easy management and scalable growth.
+  * Front Desk
+* Designed for scalability and easy management
 
 ---
 
 ## 👤 Identity & Access Management (IAM)
 
-* Implemented **Role-Based Access Control (RBAC)**
-* Created security groups:
+* Implemented Role-Based Access Control (RBAC)
+* Security Groups:
 
   * GG_Mechanics
   * GG_IT_Admins
   * GG_Payroll
   * GG_Admin
   * GG_FrontDesk
-* Assigned permissions to groups instead of individual users
-* Applied **least privilege principle**
+* Permissions assigned to groups (not users)
+* Enforced least privilege principle
 
 ---
 
 ## 🔐 Security & Compliance
 
-* Enforced password policy:
-
-  * Minimum 12 characters
-  * Complexity enabled
+* Password policy (12+ characters, complexity enabled)
 * Account lockout after 5 failed attempts
-* Enabled:
+* BitLocker enabled
+* Windows Defender active
+* Audit logging:
 
-  * BitLocker
-  * Windows Defender
-* Configured audit logs for:
-
-  * Logon activity
+  * Logon events
   * Failed access attempts
   * Administrative actions
 
 ---
 
-## ⚙️ Group Policy (GPO) Implementation
+## ⚙️ Group Policy (GPO)
 
-* Restricted Control Panel access for standard users
-* Enforced screen lock timeout
-* Applied USB restrictions for Payroll/Admin
-* Configured security baseline policies
+* Restricted Control Panel (standard users)
+* Screen lock enforcement
+* USB restrictions (Payroll/Admin)
+* Security baseline applied across domain
 
 ---
 
-## 🛠️ IT Operations
+## 📸 Screenshots (Proof of Implementation)
 
-* Managed users and computers using Active Directory tools
-* Joined workstations to the domain
-* Automated administrative tasks using PowerShell
-* Supported basic troubleshooting and user access issues
+### Active Directory Users & Computers
+
+![AD Users](screenshots/ad-users.png)
+
+### Group Policy Management
+
+![GPO](screenshots/gpo.png)
+
+### Server Manager Dashboard
+
+![Server Manager](screenshots/server-manager.png)
+
+---
+
+## 🛠️ IT Operations (Help Desk Tasks)
+
+* Created and managed user accounts
+* Reset passwords and unlocked accounts
+* Joined systems to domain
+* Resolved login and access issues
+* Managed shared folder permissions
 
 ---
 
 ## 📊 Monitoring & Reporting
 
-* Used Event Viewer for system and security logs
-* Monitored failed login attempts and user activity
-* Generated reports using PowerShell scripts
+* Event Viewer log analysis
+* Tracked failed login attempts
+* PowerShell-based reporting
 
 ---
 
-## 🔌 Integration & Services
+## 💻 Automation (PowerShell)
 
-* File Server with shared folders:
+* Automated:
 
-  * \fileserver\Mechanics
-  * \fileserver\Payroll
-* NTFS permissions based on AD groups
-* Implemented backup strategy:
+  * User creation
+  * OU creation
+  * Group management
 
-  * System State backups (Active Directory)
-  * File server backups
-
----
-
-## 🖼️ Diagrams
-![Network](diagrams/network-diagram.png)
-
-* Network architecture (DCs, firewall, users)
-* Active Directory OU structure
-
----
-
-## 📸 Screenshots
-
-*![AD Users](screenshots/ad-users.png)
-*![GPO](screenshots/gpo.png)
-*![Server](screenshots/server-manager.png)
-
----
-
-## 💻 Sample PowerShell Script
+Example:
 
 ```powershell
 New-ADUser -Name "mechanic1" -SamAccountName "mechanic1" `
 -AccountPassword (ConvertTo-SecureString "P@ssword123" -AsPlainText -Force) `
 -Enabled $true
 ```
+
+---
+
+## 🧪 Troubleshooting Scenarios
+
+### 🔹 User Unable to Log In
+
+* Checked account lockout status
+* Reset password
+* Verified domain connectivity
+* Ran `gpupdate /force`
+
+---
+
+### 🔹 GPO Not Applying
+
+* Verified OU linkage
+* Ran `gpupdate /force`
+* Checked security filtering
+
+---
+
+### 🔹 Cannot Access Shared Folder
+
+* Verified NTFS permissions
+* Checked group membership
+* Confirmed GPO not restricting access
+
+---
+
+## 🔌 Integration
+
+* File Server:
+
+  * \fileserver\Mechanics
+  * \fileserver\Payroll
+* NTFS permissions linked to AD groups
+* Backup strategy:
+
+  * System State (AD)
+  * File data backups
+
+---
+
+## 📊 Project Presentation
+
+📎 [Download PowerPoint](presentation/AD_Project.pptx)
 
 ---
 
@@ -162,17 +198,6 @@ New-ADUser -Name "mechanic1" -SamAccountName "mechanic1" `
 
 ---
 
-## 📈 Project Impact
-
-* Improved security through centralized identity management
-* Reduced administrative workload using automation
-* Increased system reliability with redundant domain controllers
-* Built a scalable IT infrastructure for future growth
-
----
-
 ## 👨‍💻 Author
 
-HERNSLEY OSIAS
-
----
+**HERNSLEY OSIAS**
