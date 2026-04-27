@@ -32,7 +32,7 @@ This project demonstrates hands-on experience with identity management, system a
 
 ## 🖼️ Network Architecture
 
-![Network Diagram](diagrams/network-diagram.png)
+![Network Diagram](diagrams/network-diagram.png) 
 
 ---
 
