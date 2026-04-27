@@ -126,7 +126,7 @@ This structure allows easy management and scalable growth.
 ---
 
 ## 🖼️ Diagrams
-[Network Diagram](diagrams/network-diagram.png)
+![Network](network-diagram.png)
 
 * Network architecture (DCs, firewall, users)
 * Active Directory OU structure
@@ -135,9 +135,9 @@ This structure allows easy management and scalable growth.
 
 ## 📸 Screenshots
 
-* [AD Users](screenshots/ad-users.png)
-* [GPO](screenshots/gpo.png)
-* [Server](screenshots/server-manager.png)
+*![AD Users](ad-users.png)
+*![GPO](gpo.png)
+*![Server](server-manager.png)
 
 ---
 
