@@ -126,8 +126,6 @@ This structure allows easy management and scalable growth.
 ---
 
 ## 🖼️ Diagrams
-
-Include the following diagrams in `/diagrams`:
 [Network Diagram](diagrams/network-diagram.png)
 
 * Network architecture (DCs, firewall, users)
